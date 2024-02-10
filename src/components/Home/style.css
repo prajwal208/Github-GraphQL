@@ -1,0 +1,92 @@
+.header_content{
+    width: 1000px;
+    height: 200px;
+    padding: 20px;
+    border: 1px solid gray;
+    color: #fff;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.header_content p{
+    margin-top: 20px;
+line-height: 25px;
+}
+
+.header_content h4{
+    color: rgb(69, 69, 236);
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.home_second_container{
+    display: flex;
+    gap: 20px;
+}
+
+.left_content_box{
+    width: 500px;
+    height: 350px;
+    border: 1px solid gray;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.right_content_box{
+    width: 500px;
+    height: 350px;
+    border: 1px solid gray;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+.left_content_box p{
+    color: gray;
+    line-height: 25px;
+    margin-top: 10px;   
+}
+
+.right_content_box p{
+    color: gray;
+    line-height: 25px;
+    margin-top: 10px;   
+}
+
+.left_content_box h4{
+    margin-top: 20px;
+    color: #fff;
+}
+
+.left_content_box input{
+    width: 300px;
+    margin-top: 5px;    
+}
+
+label{
+    color: #fff;
+}
+
+.radio_btn input{
+    margin-top: 20px;
+    width: 30px;
+}
+
+.left_content_box button{
+    width: 200px;
+    padding: 10px;
+    background-color: rgb(73, 192, 73);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user_readme li{
+    color: #fff;
+}
+

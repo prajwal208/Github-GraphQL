@@ -1,0 +1,78 @@
+.sidebar_wrap{
+    width: 400px;
+    border-right: 1px solid gray;
+    height: 100vh;
+    padding: 50px;
+    display: flex;
+}
+
+.header_sec{
+    display: flex;
+    justify-content: space-between;
+}
+
+h3{
+    color: white;
+}
+
+.sidebar_search input{
+    width: 300px;
+    padding: 8px;
+    color: #fff;
+    margin-top: 20px;   
+}
+
+.header_sec button{
+    width: 80px;
+    background-color: rgb(73, 192, 73);
+    outline: none;
+    border: none;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.resp_name_section{
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.user_logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.user_name{
+    color: #fff;
+    margin-top: 10px;
+}
+
+.recent_activity_section{
+    margin-top: 30px;
+}
+
+.activity_content{
+    width: 300px;
+    height: 70px;
+    padding: 10px;
+    color: gray;
+    border: 1px solid gray;
+    line-height: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.home_section_wrap{
+    margin-left: 100px;
+}
+
+.user_logo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
