@@ -20,4 +20,4 @@ This project features a UI design inspired by GitHub, where users can seamlessly
 <li>npm start</li>
 
 <h2>Project Link 👇</h2>
-https://github-searchgraphsql.netlify.app/
+https://search-graphsql.netlify.app/
