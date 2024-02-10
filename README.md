@@ -20,4 +20,4 @@ This project features a UI design inspired by GitHub, where users can seamlessly
 <li>npm start</li>
 
 <h2>Project Link 👇</h2>
-https://ecommerce-assignment208.netlify.app/
+https://github-searchgraphsql.netlify.app/
