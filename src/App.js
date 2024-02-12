@@ -1,15 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { RelayEnvironmentProvider } from 'react-relay';
+import environment from './components/relayEnvironment'
 import Navbar from './components/Navbar';
 import Sidebar from './components/HomeSideBar/Sidebar';
 
 function App() {
   return (
-    <div className="App">
-     <Navbar/>
-     <Sidebar/>
-     
-    </div>
+    <RelayEnvironmentProvider environment={environment}>
+      <div className="App">
+        <Navbar />
+        <Sidebar />
+      </div>
+    </RelayEnvironmentProvider>
   );
 }
 

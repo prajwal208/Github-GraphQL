@@ -1,58 +1,35 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { graphql, QueryRenderer } from 'react-relay';
+import environment from './relayEnvironment'; 
 import './navbar.css';
 import logo from '../images/icon.png';
-import dotenv from 'dotenv';
-dotenv.config();
+
+const query = graphql`
+query YourComponentQuery($searchTerm: String!) { // Define your GraphQL query
+  search(query: $searchTerm, type: REPOSITORY, first: 10) {
+    edges {
+      node {
+        ... on Repository {
+          id
+          name
+          url
+          description
+        }
+      }
+    }
+  }
+}
+`;
 
 
-export default function Navbar() {
+function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
 
   const handleChange = (event) => {
-    const { value } = event.target;
-    setSearchTerm(value);
-    
-    if (value === '') {
-      setSearchResults([]);
-    }
+    setSearchTerm(event.target.value);
   };
-  
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(
-        'https://api.github.com/graphql',
-        {
-          query: `
-            query {
-              search(query: "${searchTerm}", type: REPOSITORY, first: 10) {
-                edges {
-                  node {
-                    ... on Repository {
-                      name
-                      url
-                      description
-                    }
-                  }
-                }
-              }
-            }
-          `
-        },
-        {
-          headers: {
-            Authorization: process.env.REACT_APP_AUTHORIZATION_TOKEN
-          }
-        }
-      );
-      setSearchResults(response.data.data.search.edges);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+
 
   return (
     <>
@@ -61,7 +38,7 @@ export default function Navbar() {
           <img src={logo} alt='img' className='logo_img' />
           <h1>GitHub Search</h1>
         </header>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className='search_component'>
             <input
               type='text'
@@ -75,16 +52,29 @@ export default function Navbar() {
       </nav>
       <div className='border'></div>
       <div className='search_result-div'>
-        {/* <h2>Search Results:</h2> */}
-        <ul>
-          {searchResults.map((result, index) => (
-            <li key={index}>
-              <a href={result.node.url}>{result.node.name}</a>
-              <p>{result.node.description}</p>
-            </li>
-          ))}
-        </ul>
+        <QueryRenderer
+          environment={environment}
+          query={query}
+          variables={{ searchTerm }}
+          render={({ error, props }) => {
+            if (error) {
+              return <div>Error fetching data</div>;
+            }
+            return (
+              <ul>
+                {props.search.edges.map((result, index) => (
+                  <li key={index}>
+                    <a href={result.node.url}>{result.node.name}</a>
+                    <p>{result.node.description}</p>
+                  </li>
+                ))}
+              </ul>
+            );
+          }}
+        />
       </div>
     </>
   );
 }
+
+export default Navbar;
